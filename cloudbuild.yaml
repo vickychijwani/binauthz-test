@@ -8,17 +8,12 @@ steps:
     args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image:latest']
 
   # 3. Deploy to GKE
-  - name: 'gcr.io/cloud-builders/kubectl'
-    env:
-      - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=binauthz-test'
-    entrypoint: 'bash'
+  - name: 'gcr.io/cloud-builders/gke-deploy'
     args:
-      - '-c'
-      - |
-        kubectl create deployment my-new-deployment \
-          --image=gcr.io/$PROJECT_ID/my-image:latest \
-          --replicas=1
+      - run
+      - --image=gcr.io/$PROJECT_ID/my-image:latest
+      - --location=us-central1
+      - --cluster=binauthz-test
 
 options:
   requestedVerifyOption: VERIFIED
