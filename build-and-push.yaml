@@ -4,8 +4,8 @@ steps:
     args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image', '.']
 
   # 2. Push the container image to Artifact Registry
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image:latest']
+  #- name: 'gcr.io/cloud-builders/docker'
+  #  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image:latest']
 
   # 3. Deploy to GKE
   #- name: 'gcr.io/cloud-builders/gke-deploy'
@@ -38,6 +38,9 @@ steps:
   #  volumes:
   #  - name: 'workspace'
   #    path: '/workspace'
+
+Push the container image to Artifact Registry. NOTE: Using docker push directly won't generate BinAuthz attestations.
+images: ['us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image:latest']
 
 options:
   requestedVerifyOption: VERIFIED
