@@ -1,0 +1,11 @@
+steps:
+  # Deploy to GKE
+  - name: 'gcr.io/cloud-builders/gke-deploy'
+    args:
+    - run
+    - --image=us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image:latest
+    - --location=us-central1
+    - --cluster=autopilot-cluster-1
+
+options:
+  logging: CLOUD_LOGGING_ONLY
