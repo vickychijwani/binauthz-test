@@ -1,5 +1,12 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/${PROJECT_ID}/binauthz-test/my-image', '.']
+  # 1. Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image', '.']
+
+  # 2. Push the container image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image:latest']
+
 options:
+  requestedVerifyOption: VERIFIED
   logging: CLOUD_LOGGING_ONLY
