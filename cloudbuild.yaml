@@ -8,12 +8,12 @@ steps:
     args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image:latest']
 
   # 3. Deploy to GKE
-  - name: 'gcr.io/cloud-builders/gke-deploy'
-    args:
-    - run
-    - --image=us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image:latest
-    - --location=us-central1
-    - --cluster=autopilot-cluster-1
+  #- name: 'gcr.io/cloud-builders/gke-deploy'
+  #  args:
+  #  - run
+  #  - --image=us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image:latest
+  #  - --location=us-central1
+  #  - --cluster=autopilot-cluster-1
 
   # 3. Get the image digest
   #- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
