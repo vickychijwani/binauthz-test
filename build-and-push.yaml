@@ -39,7 +39,7 @@ steps:
   #  - name: 'workspace'
   #    path: '/workspace'
 
-Push the container image to Artifact Registry. NOTE: Using docker push directly won't generate BinAuthz attestations.
+# Push the container image to Artifact Registry. NOTE: Using docker push directly won't generate BinAuthz attestations.
 images: ['us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image:latest']
 
 options:
