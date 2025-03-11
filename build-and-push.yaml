@@ -7,4 +7,6 @@ steps:
 images: ['us-central1-docker.pkg.dev/$PROJECT_ID/binauthz-test/my-image:latest']
 
 options:
+  # This option tells Cloud Build to generate BinAuthz attestation + SLSA provenance for the above image.
+  requestedVerifyOption: VERIFIED
   logging: CLOUD_LOGGING_ONLY
